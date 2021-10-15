@@ -44,22 +44,16 @@ ESCRITÓRIO: Av. Pedro Severino Júnior, 366 - Jardim Aeroporto - São Paulo/SP 
 					<div class="form-group m-b-15">
                             <x-jet-label for="email" value="{{ __('Email') }}" />
                             <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-						{{-- <input type="text" class="form-control form-control-lg" placeholder="Endereço de Email" required /> --}}
 					</div>
 					<div class="form-group m-b-15">
-                            <x-jet-label for="password" value="{{ __('Password') }}" />
+                            <x-jet-label for="password" value="{{ __('Senha') }}" />
                             <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-						{{-- <input type="password" class="form-control form-control-lg" placeholder="Senha" required /> --}}
 					</div>
 					<div class="checkbox checkbox-css m-b-30">
                         <label for="remember_me" class="flex items-center">
                             <x-jet-checkbox id="remember_me" name="remember" />
-                            <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                            <span class="ml-2 text-sm text-gray-600">{{ __('Manter conectado') }}</span>
                         </label>
-						{{-- <input type="checkbox" id="remember_me_checkbox" value="" />
-						<label for="remember_me_checkbox">
-						Lembrar login
-						</label> --}}
 					</div>
 					<div class="login-buttons">
                         @if (Route::has('password.request'))
@@ -72,8 +66,8 @@ ESCRITÓRIO: Av. Pedro Severino Júnior, 366 - Jardim Aeroporto - São Paulo/SP 
                     </x-jet-button>
 						{{-- <button type="submit" class="btn btn-success btn-block btn-lg">Logar-se</button> --}}
 					</div>
-					<div class="m-t-20 m-b-40 p-b-40 text-inverse">
-						Ainda não está registrado? Clique <a href="registro">aqui</a> para registrar.
+					<div class="m-t-40 m-b-20 text-inverse text-sm">
+						Ainda não está registrado? <a href="{{route('register')}}">Registre-se aqui</a>.
 					</div>
 					<hr />
 					<p class="text-center text-grey-darker mb-0">
