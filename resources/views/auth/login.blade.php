@@ -10,8 +10,7 @@
 			<div class="news-image" style="background-image: url(/assets/img/login-bg/login-bg-11.jpg)"></div>
 			<div class="news-caption">
 				<h4 class="caption-title"><b>Fenix Cargo</b> Painel administrativo</h4>
-				<p>
-					FÊNIX CARGO LOGÍSTICA E TRANSPORTES LTDA<br />
+				<p>FÊNIX CARGO LOGÍSTICA E TRANSPORTES LTDA<br />
 CNPJ: 43.079.594/0001-80<br />
 ESCRITÓRIO: Av. Pedro Severino Júnior, 366 - Jardim Aeroporto - São Paulo/SP - CEP 04310060<br />
 				</p>
