@@ -148,7 +148,7 @@
                     </div>
                     <!-- end panel-body -->
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary m-r-5">Cadastrar</button>
+                <button type="submit" class="btn btn-sm btn-primary disabled m-r-5" disabled>Cadastrar</button>
                 <button type="button" onclick="$('input').val('');" class="btn btn-sm btn-default">Limpar</button>
             </form>
         <!-- end panel -->
