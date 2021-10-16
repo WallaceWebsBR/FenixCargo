@@ -3,7 +3,6 @@
 @section('title', 'Dashboard V3')
 
 @push('css')
-	<link href="/assets/plugins/jvectormap-next/jquery-jvectormap.css" rel="stylesheet" />
 	<link href="/assets/plugins/nvd3/build/nv.d3.css" rel="stylesheet" />
 	<link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
 @endpush
@@ -110,8 +109,6 @@
 @push('scripts')
 	<script src="/assets/plugins/d3/d3.min.js"></script>
 	<script src="/assets/plugins/nvd3/build/nv.d3.js"></script>
-	<script src="/assets/plugins/jvectormap-next/jquery-jvectormap.min.js"></script>
-	<script src="/assets/plugins/jvectormap-next/jquery-jvectormap-world-mill.js"></script>
 	<script src="/assets/plugins/apexcharts/dist/apexcharts.min.js"></script>
 	<script src="/assets/plugins/moment/moment.js"></script>
 	<script src="/assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
