@@ -41,6 +41,7 @@ ESCRITÓRIO: Av. Pedro Severino Júnior, 366 - Jardim Aeroporto - São Paulo/SP 
                 </div>
                 @endif
 				<form action="{{ route('login') }}" method="POST" class="margin-bottom-0">
+                    @csrf
 					<div class="form-group m-b-15">
                             <x-jet-label for="email" value="{{ __('Email') }}" />
                             <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
