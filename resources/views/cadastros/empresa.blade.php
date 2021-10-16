@@ -72,7 +72,6 @@
                         </div>
                     </fieldset>
                 </div>
-
             </div>
             <!-- end panel-body -->
             <!-- begin panel-heading -->
