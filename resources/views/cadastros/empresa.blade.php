@@ -36,7 +36,6 @@
                 <div class="panel-body" style="">
                     <fieldset>
                         <div class="row">
-
                             <legend class="m-b-15">Informações da Empresa</legend>
                             <div class="form-group col-md-2">
                                 <label>CNPJ</label>
