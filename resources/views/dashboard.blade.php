@@ -105,7 +105,6 @@
 	<!-- end row -->
 @endsection
 
-
 @push('scripts')
 	<script src="/assets/plugins/d3/d3.min.js"></script>
 	<script src="/assets/plugins/nvd3/build/nv.d3.js"></script>
