@@ -1,7 +1,7 @@
 @php
 	$headerClass = (!empty($headerInverse)) ? 'navbar-inverse ' : 'navbar-default ';
 	$headerMenu = (!empty($headerMenu)) ? $headerMenu : '';
-	$headerMegaMenu = (!empty($headerMegaMenu)) ? $headerMegaMenu : ''; 
+	$headerMegaMenu = (!empty($headerMegaMenu)) ? $headerMegaMenu : '';
 	$headerTopMenu = (!empty($headerTopMenu)) ? $headerTopMenu : '';
 @endphp
 <!-- begin #header -->
@@ -15,7 +15,7 @@
 			<span class="icon-bar"></span>
 		</button>
 		@endif
-		<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
+		<a href="{{route('home')}}" class="navbar-brand"> <img src="{{asset('assets/img/logo/favicon.png')}}" width="30px">&nbsp; <b>FenixCargo &nbsp;</b> Painel</a>
 		@if ($headerMegaMenu)
 			<button type="button" class="navbar-toggle pt-0 pb-0 mr-0" data-toggle="collapse" data-target="#top-navbar">
 				<span class="fa-stack fa-lg text-inverse">
@@ -48,11 +48,12 @@
 		@endif
 	</div>
 	<!-- end navbar-header -->
-	
+
 	@includeWhen($headerMegaMenu, 'includes.header-mega-menu')
-	
+
 	<!-- begin header-nav -->
 	<ul class="navbar-nav navbar-right">
+        {{--
 		<li class="navbar-form">
 			<form action="" method="POST" name="search_form">
 				<div class="form-group">
@@ -61,7 +62,7 @@
 				</div>
 			</form>
 		</li>
-		<li class="dropdown">
+		 <li class="dropdown">
 			<a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
 				<i class="fa fa-bell"></i>
 				<span class="label">5</span>
@@ -122,7 +123,7 @@
 					<a href="javascript:;">View more</a>
 				</div>
 			</div>
-		</li>
+		</li> --}}
 		@isset($headerLanguageBar)
 		<li class="dropdown navbar-language">
 			<a href="#" class="dropdown-toggle pr-1 pl-1 pr-sm-3 pl-sm-3" data-toggle="dropdown">
@@ -141,16 +142,21 @@
 		@endisset
 		<li class="dropdown navbar-user">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				<img src="/assets/img/user/user-13.jpg" alt="" /> 
-				<span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
+				<img src="{{Auth::user()->profile_photo_url}}" alt="" />
+				<span class="d-none d-md-inline">{{Auth::user()->name}}</span> <b class="caret"></b>
 			</a>
 			<div class="dropdown-menu dropdown-menu-right">
-				<a href="javascript:;" class="dropdown-item">Edit Profile</a>
-				<a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a>
-				<a href="javascript:;" class="dropdown-item">Calendar</a>
-				<a href="javascript:;" class="dropdown-item">Setting</a>
+				<a href="{{route('configuracoes.perfil')}}" class="dropdown-item">Editar Perfil</a>
+				{{-- <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span> Inbox</a> --}}
+				<a href="javascript:;" class="dropdown-item">Calendário</a>
+				<a href="javascript:;" class="dropdown-item">Configurações</a>
 				<div class="dropdown-divider"></div>
-				<a href="javascript:;" class="dropdown-item">Log Out</a>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="dropdown-item underline text-sm text-gray-600 hover:text-gray-900">
+                        {{ __('Log Out') }}
+                    </button>
+                </form>
 			</div>
 		</li>
 		@if($sidebarTwo)

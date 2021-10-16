@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,13 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+
+    Route::view('dashboard','dashboard')->name('home');
+
+    Route::prefix('configuracoes')->group(function () {
+        Route::get('perfil', [PerfilController::class, 'index'])->name('configuracoes.perfil');
+    });
+
+});
