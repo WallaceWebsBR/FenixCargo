@@ -18,7 +18,7 @@ ESCRITÓRIO: Av. Pedro Severino Júnior, 366 - Jardim Aeroporto - São Paulo/SP 
 		</div>
 		<!-- end news-feed -->
 		<!-- begin right-content -->
-		<div class="right-content">
+		<div class="right-content bg-black-300">
 			<!-- begin login-header -->
 			<div class="login-header">
 				<div class="brand">
