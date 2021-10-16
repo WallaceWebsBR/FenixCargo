@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PerfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::prefix('configuracoes')->group(function () {
         Route::get('perfil', [PerfilController::class, 'index'])->name('configuracoes.perfil');
+    });
+
+    Route::prefix('cadastrar')->group(function () {
+        Route::get('empresa', [EmpresaController::class, 'index'])->name('cadastro.empresa');
     });
 
 });

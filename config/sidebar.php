@@ -28,8 +28,8 @@ return [
         'url' => 'javascript:;',
         'caret' => true,
         'sub_menu' => [[
-            'url' => 'javascript:;',
-            'title' => 'Cadastrar Clientes'
+            'url' => url('cadastrar/empresa'),
+            'title' => 'Cadastrar Empresas'
         ],[
             'url' => 'javascript:;',
             'title' => 'Cadastrar Transportadora'
