@@ -204,7 +204,11 @@
                     //DADOS DE CONTATO
                     $('.email').val(data.email);
                     $('.tel_fixo').val(data.telefone);
+                },
+                error: function(error){
+                    return alert('Empresa não encontrada!');
                 }
+
                 });
             });
     }
