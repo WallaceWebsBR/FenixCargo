@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 
-class EmpresaController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        return view('cadastros.empresa');
+        $empresas = Empresa::all();
+        return view('dashboard', compact('empresas'));
     }
 
     /**
@@ -35,8 +36,7 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        $dados = Empresa::create($request->all());
-        return redirect()->route('home')->with('msg', 'Salvo com Sucesso');
+        //
     }
 
     /**
@@ -58,8 +58,7 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = Empresa::find($id);
-        return view('cadastros.empresa', compact('empresa'));
+        //
     }
 
     /**
@@ -71,9 +70,7 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $empresa = Empresa::find($id);
-        $empresa->update($request->all());
-        return redirect()->route('home')->with('msg', 'Editado com Sucesso');
+        //
     }
 
     /**
@@ -84,7 +81,6 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        $empresa = Empresa::destroy($id);
-        return redirect()->route('home')->with('msg', 'Deletado com Sucesso');
+        //
     }
 }

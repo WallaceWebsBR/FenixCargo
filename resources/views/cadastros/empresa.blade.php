@@ -20,7 +20,8 @@
 
     <div class="col-xl">
         <!-- begin panel -->
-        <form action="/" method="POST">
+        <form action="{{route('cadastro.empresa.store')}}" method="POST">
+        @csrf
         <div class="panel panel-inverse" data-sortable-id="form-stuff-10">
             <!-- begin panel-heading -->
             <div class="panel-heading ui-sortable-handle">
@@ -39,34 +40,34 @@
                             <legend class="m-b-15">Informações da Empresa</legend>
                             <div class="form-group col-md-2">
                                 <label>CNPJ</label>
-                                <input type="text" class="form-control" placeholder="Digite o CNPJ" name="CNPJ" id="cnpj">
+                                <input type="text" class="form-control" placeholder="Digite o CNPJ" name="cnpj" id="cnpj" value="{{$empresa->cnpj ?? ''}}" required>
                                 <button type="button" onclick="getcnpj()" class="btn btn-sm btn-primary m-t-15" style="width: 100%">Preencher dados</button>
                             </div>
                             <div class="form-group col-md-5">
                                 <label>Nome Fantasia</label>
-                                <input type="text" class="form-control" placeholder="Nome Fantasia" name="nome_fantasia" id="nome_fantasia" disabled>
+                                <input type="text" class="form-control" placeholder="Nome Fantasia" name="nome_fantasia" id="nome_fantasia" value="{{$empresa->nome_fantasia ?? ''}}">
                                 <button type="button" onclick="buscarSimilares()" class="btn btn-sm btn-info m-t-15" style="width: 100%">Verificar empresas similares</button>
                             </div>
                             <div class="form-group col-md-5">
                                 <label>Razão Social</label>
-                                <input type="text" class="form-control" placeholder="Razão Social" name="razao_social" id="razao_social" disabled>
+                                <input type="text" class="form-control" placeholder="Razão Social" name="razao_social" id="razao_social" value="{{$empresa->razao_social ?? ''}}">
                                 <button type="button" onclick="buscarMF()" class="btn btn-sm btn-secondary m-t-15" style="width: 100%">Verificar Matriz e Filiais</button>
                             </div>
                             <div class="form-group col-md-2">
                                 <label>Inicio das Atividades</label>
-                                <input type="text" class="form-control" placeholder="Data de inicio das atividades" name="data_inicio_atividade" id="data_inicio_atividade" disabled>
+                                <input type="text" class="form-control" placeholder="Data de inicio das atividades" name="data_inicio_atividade" id="data_inicio_atividade" value="{{$empresa->data_inicio_atividade ?? ''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label>CNAE Fiscal</label>
-                                <input type="text" class="form-control" placeholder="CNAE Fiscal" name="cnae_fiscal" id="cnae_fiscal" disabled>
+                                <input type="text" class="form-control" placeholder="CNAE Fiscal" name="cnae_fiscal" id="cnae_fiscal" value="{{$empresa->cnae_fiscal ?? ''}}">
                             </div>
                             <div class="form-group col-md-2">
                                 <label>Descrição Matriz/Filial</label>
-                                <input type="text" class="form-control" placeholder="Matriz ou Filial" name="descricao_matriz_filial" id="descricao_matriz_filial" disabled>
+                                <input type="text" class="form-control" placeholder="Matriz ou Filial" name="descricao_matriz_filial" id="descricao_matriz_filial" value="{{$empresa->descricao_matriz_filial ?? ''}}">
                             </div>
                             <div class="form-group col-md-6">
                                 <label>Endereço</label>
-                                <input type="text" class="form-control" placeholder="Logradouro" name="endereco" id="endereco">
+                                <input type="text" class="form-control" placeholder="Logradouro" name="endereco" id="endereco" value="{{$empresa->endereco ?? ''}}" required>
                             </div>
                         </div>
                     </fieldset>
@@ -91,22 +92,22 @@
                                 <legend class="m-b-15">Informações de Contato</legend>
                                 <div class="form-group col-md-4">
                                     <label>Nome do contato</label>
-                                    <input type="text" class="form-control socio" placeholder="Nome" name="nome_contato[]" id="nome_contato">
+                                    <input type="text" class="form-control socio" placeholder="Nome" name="nome_contato" id="nome_contato" value="{{$empresa->nome_contato ?? ''}}">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>Email</label>
-                                    <input type="email" class="form-control email" placeholder="email@exemplo.com" name="email[]">
+                                    <input type="email" class="form-control email" placeholder="email@exemplo.com" name="email">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>Telefone Fixo</label>
-                                    <input type="text" class="form-control tel_fixo" placeholder="(DD) XXXX-XXXX" name="tel_fixo[]">
+                                    <input type="text" class="form-control tel_fixo" placeholder="(DD) XXXX-XXXX" name="tel_fixo">
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label>Celular / WhatsApp</label>
-                                    <input type="text" class="form-control tel_celular" placeholder="(DD) 9XXXX-XXXX" name="tel_celular[]">
+                                    <input type="text" class="form-control tel_celular" placeholder="(DD) 9XXXX-XXXX" name="tel_celular">
                                 </div>
                             </div>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="form-group col-md-4">
                                     <label>Nome do contato</label>
                                     <input type="text" class="form-control socio" placeholder="Nome" name="nome_contato[]" id="nome_contato">
@@ -141,13 +142,13 @@
                                     <label>Celular / WhatsApp</label>
                                     <input type="text" class="form-control tel_celular" placeholder="(DD) 9XXXX-XXXX" name="tel_celular[]">
                                 </div>
-                            </div>
+                            </div> --}}
                         </fieldset>
                     </div>
                     <!-- end panel-body -->
                 </div>
-                <button type="submit" class="btn btn-sm btn-primary disabled m-r-5" disabled>Cadastrar</button>
-                <button type="button" onclick="$('input').val('');" class="btn btn-sm btn-default">Limpar</button>
+                <button type="submit" class="btn btn-sm btn-primary m-r-5">Cadastrar</button>
+                <button type="button" onclick="limpar()" class="btn btn-sm btn-default">Limpar</button>
             </form>
         <!-- end panel -->
     </div>
@@ -157,6 +158,14 @@
 
 @push('scripts')
 <script>
+    function limpar(){
+        $('input').each(function() {
+            if($(this).attr('name') != '_token'){
+                $(this).val('');
+            }
+        })
+    }
+
     function buscarSimilares(){
         window.open("http://cnpj.info/" + $('#nome_fantasia').val().replace(" ", "'"), '_blank')
     }

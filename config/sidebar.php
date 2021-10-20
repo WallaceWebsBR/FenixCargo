@@ -28,7 +28,7 @@ return [
         'url' => 'javascript:;',
         'caret' => true,
         'sub_menu' => [[
-            'url' => url('cadastrar/empresa'),
+            'url' => '/cadastrar/empresa',
             'title' => 'Cadastrar Empresas'
         ],[
             'url' => 'javascript:;',

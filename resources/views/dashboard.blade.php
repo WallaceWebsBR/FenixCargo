@@ -70,11 +70,11 @@
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-comment-alt fa-fw"></i></div>
                 <div class="stats-content">
                     <div class="stats-title">EMPRESAS CADASTRADAS</div>
-                    <div class="stats-number">3.988</div>
+                    <div class="stats-number">{{count($empresas)}}</div>
                     <div class="stats-progress progress">
                         <div class="progress-bar" style="width: 54.9%;"></div>
                     </div>
-                    <div class="stats-desc">15 novas empresas cadastradas</div>
+                    <div class="stats-desc">{{count($empresas)}} novas empresas cadastradas</div>
                 </div>
             </div>
         </div>
@@ -148,6 +148,59 @@
                                             <button class="btn btn-danger">Excluir Fatura</button>
                                         </th>
                                     </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                    </fieldset>
+                </div>
+        </div>
+            <!-- end panel-body -->
+    </div>
+    <div class="col-xl">
+        <div class="panel panel-inverse" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading ui-sortable-handle">
+                <h4 class="panel-title">Empresas Cadastradas</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+                <div class="panel-body" style="">
+                    <fieldset>
+                        <div class="table-responsive">
+                            <table class="table table-striped m-b-0">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>CNPJ</th>
+                                        <th>Nome Fantasia</th>
+                                        <th>Endereço</th>
+                                        <th>Email</th>
+                                        <th>Contatos</th>
+                                        <th>Açoes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (count($empresas))
+                                    @foreach ($empresas as $empresa)
+                                    <tr>
+                                        <td>{{$empresa->id}}</td>
+                                        <td>{{$empresa->cnpj}}</td>
+                                        <td>{{$empresa->nome_fantasia}}</td>
+                                        <td>{{$empresa->endereco}}</td>
+                                        <td>{{$empresa->email ?? 'Sem dados'}}</td>
+                                        <td>{{$empresa->tel_fixo ?? ''}} / {{$empresa->tel_celular}}</td>
+                                        <td>
+                                            <button type="button" onclick="location.href = '{{route('cadastro.empresa.edit', $empresa->id)}}'" class="btn btn-success"> Editar </button>
+                                            <button type="button" onclick="location.href = '{{route('cadastro.empresa.destroy', $empresa->id)}}'" class="btn btn-danger"> Excluir </button>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                           </div>
