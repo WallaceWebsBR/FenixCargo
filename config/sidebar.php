@@ -31,8 +31,8 @@ return [
             'url' => '/cadastrar/empresa',
             'title' => 'Cadastrar Empresas'
         ],[
-            'url' => 'javascript:;',
-            'title' => 'Cadastrar Transportadora'
+            'url' => '/cadastrar/veiculo',
+            'title' => 'Cadastrar Veiculo'
         ]]
         ]
 
