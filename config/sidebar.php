@@ -31,8 +31,11 @@ return [
             'url' => '/cadastrar/empresa',
             'title' => 'Cadastrar Empresas'
         ],[
+            'url' => '/cadastrar/fatura',
+            'title' => 'Cadastrar Faturas'
+        ],[
             'url' => '/cadastrar/veiculo',
-            'title' => 'Cadastrar Veiculo'
+            'title' => 'Cadastrar Veiculos'
         ]]
         ]
 

@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\VeiculoController;
+use App\Http\Controllers\FaturaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,13 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         Route::get('empresa/{id}', [EmpresaController::class, 'edit'])->name('cadastro.empresa.edit');
         Route::post('empresa/{id}', [EmpresaController::class, 'update'])->name('cadastro.empresa.update');
         Route::get('deletar_empresa/{id}', [EmpresaController::class, 'destroy'])->name('cadastro.empresa.destroy');
+
+        //FATURA
+        Route::get('fatura', [FaturaController::class, 'index'])->name('cadastro.fatura');
+        Route::post('fatura', [FaturaController::class, 'store'])->name('cadastro.fatura.store');
+        Route::get('fatura/{id}', [FaturaController::class, 'edit'])->name('cadastro.fatura.edit');
+        Route::post('fatura/{id}', [FaturaController::class, 'update'])->name('cadastro.fatura.update');
+        Route::get('deletar_fatura/{id}', [FaturaController::class, 'destroy'])->name('cadastro.fatura.destroy');
 
         //VEICULOS
         Route::get('veiculo', [VeiculoController::class, 'index'])->name('cadastro.veiculo');
